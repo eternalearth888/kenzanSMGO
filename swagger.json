@@ -21,6 +21,9 @@
                         "schema": {
                             "$ref": "#/definitions/Characters"
                         }
+                    },
+                    "500": {
+                        "$ref": "#/responses/Standard500ErrorResponse"
                     }
                 }
             },
@@ -43,6 +46,9 @@
                     },
                     "400": {
                         "description": "Character couldn't have been created"
+                    },
+                    "500": {
+                        "$ref": "#/responses/Standard500ErrorResponse"
                     }
                 }
             }
@@ -69,6 +75,9 @@
                     },
                     "404": {
                         "description": "The Character does not exist"
+                    },
+                    "500": {
+                        "$ref": "#/responses/Standard500ErrorResponse"
                     }
                 }
             }
