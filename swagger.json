@@ -1,0 +1,111 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Sailor Moon Go",
+        "description": "Personal project under Kenzan mentorship to explore swagger, openapi, nodejx, and more to create a Pokemon Go style game with Sailor Moon theme in place"
+    },
+    "paths": {
+        "/characters": {
+            "get": {
+                "summary": "Get some characters",
+                "description": "Return a list containing all characters a player can choose from",
+                "responses": {
+                    "200": {
+                        "description": "A list of Characters",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "properties": {
+                                    "firstName": {
+                                        "type": "string"
+                                    },
+                                    "lastName": {
+                                        "type": "string"
+                                    },
+                                    "planet": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Creates a character",
+                "description": "Adds a new character to the characters list",
+                "parameters": [
+                    {
+                        "name": "character",
+                        "in": "body",
+                        "description": "The character to create",
+                        "schema": {
+                            "required": [
+                                "planet"
+                            ],
+                            "properties": {
+                                "firstName": {
+                                    "type": "string"
+                                },
+                                "lastName": {
+                                    "type": "string"
+                                },
+                                "planet": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Character successsfully created"
+                    },
+                    "400": {
+                        "description": "Character couldn't have been created"
+                    }
+                }
+            }
+        },
+        "/characters/{planet}": {
+            "get": {
+                "summary": "Gets a character",
+                "description": "Returns a single character based on their planet",
+                "parameters": [
+                    {
+                        "name": "planet",
+                        "in": "path",
+                        "required": true,
+                        "description": "The character's planet",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A Character",
+                        "schema": {
+                            "required": [
+                                "planet"
+                            ],
+                            "properties": {
+                                "firstName": {
+                                    "type": "string"
+                                },
+                                "lastName": {
+                                    "type": "string"
+                                },
+                                "planet": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "The Character does not exist"
+                    }
+                }
+            }
+        }
+    }
+}

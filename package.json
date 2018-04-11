@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/eternalearth888/kenzanSMGO#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "wget": "0.0.1"
   }
 }
